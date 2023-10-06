@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-// const bcrypt = require("bcryptjs");
-// const config = require("../config/config");
+const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema(
   {
@@ -18,15 +17,8 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
+      trim: true,
     },
-    // role: {
-    //   type: String,
-    //   trim: true,
-    // },
-    // user_image: {
-    //   type: String,
-    //   trim: true,
-    // },
     is_active: {
       type: Boolean,
       default: true,
@@ -35,20 +27,13 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
     versionKey: false,
-    // toJSON: {
-    //   transform: function (doc, data) {
-    //     if (data?.user_image) {
-    //       data.user_image = `${config.base_url}user_image/${data.user_image}`;
-    //     }
-    //   },
-    // },
   }
 );
 
-// userSchema.pre("save", async function (next) {
-//   var salt = bcrypt.genSaltSync(8);
-//   this.password = await bcrypt.hash(this.password, salt);
-// });
+userSchema.pre("save", async function (next) {
+  var salt = bcrypt.genSaltSync(8);
+  this.password = await bcrypt.hash(this.password, salt);
+});
 
 const User = mongoose.model("users", userSchema);
 module.exports = User;
