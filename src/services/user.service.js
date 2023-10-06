@@ -26,8 +26,8 @@ const getUserList = async (filter, options) => {
  * @param {string} email
  * @returns {Promise<User>}
  */
-const getUserByEmail = async (email) => {
-  return User.findOne({ email });
+const getUserByName = async (first_name) => {
+  return User.find({ first_name });
 };
 
 /**
@@ -63,6 +63,6 @@ module.exports = {
   getUserList,
   getUserById,
   updateDetails,
-  getUserByEmail,
+  getUserByName,
   deleteUser,
 };

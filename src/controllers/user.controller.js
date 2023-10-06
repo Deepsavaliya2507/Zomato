@@ -6,15 +6,15 @@ const createUser = async (req, res) => {
   try {
     const reqBody = req.body;
 
-    if (req.file) {
-      reqBody.user_image = req.file.filename;
-    } else {
-      throw new Error("Product image is required!");
-    }
+    // if (req.file) {
+    //   reqBody.user_image = req.file.filename;
+    // } else {
+    //   throw new Error("Product image is required!");
+    // }
 
-    const userExists = await userService.getUserByEmail(reqBody.email);
+    const userExists = await userService.getUserByName(reqBody.first_name);
     if (userExists) {
-      throw new Error("User already created by this email!");
+      throw new Error("User already created by this name!");
     }
 
     const user = await userService.createUser(reqBody);
