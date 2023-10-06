@@ -16,6 +16,7 @@ const restaurantsSchema = new mongoose.Schema(
     },
     address: {
       type: String,
+      trim: true,
     },
     contact_number: {
       type: Number,

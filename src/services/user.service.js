@@ -22,12 +22,12 @@ const getUserList = async (filter, options) => {
 };
 
 /**
- * Get user by email
- * @param {string} email
+ * Get user by first_name
+ * @param {string} first_name
  * @returns {Promise<User>}
  */
 const getUserByName = async (first_name) => {
-  return User.find({ first_name });
+  return User.findOne({ first_name });
 };
 
 /**

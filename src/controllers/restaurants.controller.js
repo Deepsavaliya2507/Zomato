@@ -6,12 +6,6 @@ const createRestaurants = async (req, res) => {
   try {
     const reqBody = req.body;
 
-    if (req.file) {
-      reqBody.restaurants_image = req.file.filename;
-    } else {
-      throw new Error("Product image is required!");
-    }
-
     const restaurantsExists = await restaurantsService.getRestaurantsByEmail(
       reqBody.email
     );

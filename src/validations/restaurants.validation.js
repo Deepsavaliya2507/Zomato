@@ -4,8 +4,9 @@ const Joi = require("joi");
 const createRestaurants = {
   body: Joi.object().keys({
     restaurant_name: Joi.string().required().trim(),
+    restaurant_owner_name: Joi.string().required().trim(),
     area: Joi.string().required().trim(),
-    address: Joi.string().email().required(),
+    address: Joi.string().trim().required(),
     contact_number: Joi.number().required().integer(),
     owner_number: Joi.number().integer().required(),
   }),
