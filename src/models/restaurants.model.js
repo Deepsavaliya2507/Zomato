@@ -6,16 +6,24 @@ const restaurantsSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    restaurant_owner_name: {
+    restaurant_owner_id: {
       type: String,
       trim: true,
     },
-    area: {
+    city: {
       type: String,
       trim: true,
     },
     address: {
       type: String,
+      trim: true,
+    },
+    state: {
+      type: String,
+      trim: true,
+    },
+    zipcode: {
+      type: Number,
       trim: true,
     },
     contact_number: {
