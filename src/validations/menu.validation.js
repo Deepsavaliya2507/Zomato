@@ -1,18 +1,16 @@
 const Joi = require("joi");
 
-/** create user */
-const createUser = {
+/** create menu */
+const createMenu = {
   body: Joi.object().keys({
-    first_name: Joi.string().required().trim(),
-    last_name: Joi.string().required().trim(),
-    email: Joi.string().email().required(),
-    password: Joi.number().required().integer(),
-    role: Joi.string().trim().required(),
+    product_name: Joi.string().required().trim(),
+    description: Joi.string().required().trim(),
+    price: Joi.number().required().integer(),
   }),
 };
 
-/** GEt user list */
-const getUserList = {
+/** GEt menu list */
+const getMenuList = {
   query: Joi.object().keys({
     search: Joi.string().trim().allow(""),
     sortBy: Joi.string().trim().allow(""),
@@ -21,22 +19,22 @@ const getUserList = {
   }),
 };
 
-/** Get user details by id */
+/** Get menu details by id */
 const getDetails = {
   params: Joi.object().keys({
-    userId: Joi.string().required().trim(),
+    menuId: Joi.string().required().trim(),
   }),
 };
 
-/** user details update by id */
+/** menu details update by id */
 const updateDetails = {
   params: Joi.object().keys({
-    userId: Joi.string().required().trim(),
+    menuId: Joi.string().required().trim(),
   }),
   body: Joi.object().keys({
-    first_name: Joi.string().trim(),
-    last_name: Joi.string().trim(),
-    email: Joi.string().email().required(),
+    product_name: Joi.string().trim(),
+    description: Joi.string().trim(),
+    price: Joi.string().email().required(),
   }),
 };
 
@@ -50,9 +48,9 @@ const sendMail = {
 };
 
 module.exports = {
-  createUser,
+  createMenu,
   getDetails,
-  getUserList,
+  getMenuList,
   updateDetails,
   sendMail,
 };

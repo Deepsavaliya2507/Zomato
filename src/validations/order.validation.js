@@ -1,18 +1,17 @@
 const Joi = require("joi");
 
-/** create user */
-const createUser = {
+/** create order */
+const createOrder = {
   body: Joi.object().keys({
-    first_name: Joi.string().required().trim(),
-    last_name: Joi.string().required().trim(),
-    email: Joi.string().email().required(),
-    password: Joi.number().required().integer(),
-    role: Joi.string().trim().required(),
+    menu: Joi.string().required().trim(),
+    total_price: Joi.number().required().integer(),
+    quantity: Joi.number().required().integer(),
+    order_date: Joi.number().required().integer(),
   }),
 };
 
-/** GEt user list */
-const getUserList = {
+/** GEt order list */
+const getOrderList = {
   query: Joi.object().keys({
     search: Joi.string().trim().allow(""),
     sortBy: Joi.string().trim().allow(""),
@@ -21,22 +20,22 @@ const getUserList = {
   }),
 };
 
-/** Get user details by id */
+/** Get order details by id */
 const getDetails = {
   params: Joi.object().keys({
-    userId: Joi.string().required().trim(),
+    orderId: Joi.string().required().trim(),
   }),
 };
 
-/** user details update by id */
+/** order details update by id */
 const updateDetails = {
   params: Joi.object().keys({
-    userId: Joi.string().required().trim(),
+    orderId: Joi.string().required().trim(),
   }),
   body: Joi.object().keys({
-    first_name: Joi.string().trim(),
-    last_name: Joi.string().trim(),
-    email: Joi.string().email().required(),
+    menu: Joi.string().trim(),
+    total_price: Joi.string().trim(),
+    quantity: Joi.number().integer().required(),
   }),
 };
 
@@ -50,9 +49,9 @@ const sendMail = {
 };
 
 module.exports = {
-  createUser,
+  createOrder,
   getDetails,
-  getUserList,
+  getOrderList,
   updateDetails,
   sendMail,
 };
