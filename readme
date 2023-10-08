@@ -1,5 +1,3 @@
-Certainly! Here's a list of the packages you mentioned along with the installation process for each using NPM:
-
 1. **bcryptjs** 🔒: For securely hashing and comparing passwords.
    ```bash
    npm install bcryptjs
