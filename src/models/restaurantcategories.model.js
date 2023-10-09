@@ -4,7 +4,7 @@ const restaurantcategoriesSchema = new mongoose.Schema(
   {
     restaurant: {
       type: mongoose.Types.ObjectId,
-      ref: restaurants,
+      ref: "restaurants",
     },
     restaurant_type_name: {
       type: String,

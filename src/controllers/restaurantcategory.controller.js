@@ -2,7 +2,7 @@ const fs = require("fs");
 const { restaurantcategoryService, emailService } = require("../services");
 
 /** create restaurantcategory */
-const createrestaurantcategory = async (req, res) => {
+const createRestaurantcategory = async (req, res) => {
   try {
     const reqBody = req.body;
 
@@ -29,7 +29,7 @@ const createrestaurantcategory = async (req, res) => {
 };
 
 /** Get restaurantcategory list */
-const getrestaurantcategoryList = async (req, res) => {
+const getRestaurantcategoryList = async (req, res) => {
   try {
     const { search, ...options } = req.query;
     let filter = {};
@@ -57,7 +57,7 @@ const getrestaurantcategoryList = async (req, res) => {
 };
 
 /** Get restaurantcategory details by id */
-const getrestaurantcategoryDetails = async (req, res) => {
+const getRestaurantcategoryDetails = async (req, res) => {
   try {
     const getDetails = await restaurantcategoryService.getrestaurantcategoryById(
       req.params.restaurantcategoryId
@@ -101,7 +101,7 @@ const updateDetails = async (req, res) => {
 };
 
 /** Delete restaurantcategory */
-const deleterestaurantcategory = async (req, res) => {
+const deleteRestaurantcategory = async (req, res) => {
   try {
     const restaurantcategoryId = req.params.restaurantcategoryId;
     const restaurantcategoryExists = await restaurantcategoryService.getrestaurantcategoryById(
@@ -123,9 +123,9 @@ const deleterestaurantcategory = async (req, res) => {
 };
 
 module.exports = {
-  createrestaurantcategory,
-  getrestaurantcategoryList,
-  getrestaurantcategoryDetails,
+  createRestaurantcategory,
+  getRestaurantcategoryList,
+  getRestaurantcategoryDetails,
   updateDetails,
-  deleterestaurantcategory,
+  deleteRestaurantcategory,
 };

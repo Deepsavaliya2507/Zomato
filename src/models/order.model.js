@@ -4,11 +4,11 @@ const orderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Types.ObjectId,
-      ref: users,
+      ref: "users",
     },
     restaurant: {
       type: mongoose.Types.ObjectId,
-      ref: restaurants,
+      ref: "restaurants",
     },
     order_date: {
       type: String,
@@ -16,7 +16,7 @@ const orderSchema = new mongoose.Schema(
     },
     menu: {
       type: mongoose.Types.ObjectId,
-      ref: menu,
+      ref: "menu",
     },
     total_price: {
       type: String,

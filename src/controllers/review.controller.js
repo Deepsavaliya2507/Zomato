@@ -2,7 +2,7 @@ const fs = require("fs");
 const { dreviewService, emailService } = require("../services");
 
 /** create dreview */
-const createdReview = async (req, res) => {
+const createReview = async (req, res) => {
   try {
     const reqBody = req.body;
 
@@ -29,7 +29,7 @@ const createdReview = async (req, res) => {
 };
 
 /** Get dreview list */
-const getdReviewList = async (req, res) => {
+const getReviewList = async (req, res) => {
   try {
     const { search, ...options } = req.query;
     let filter = {};
@@ -57,7 +57,7 @@ const getdReviewList = async (req, res) => {
 };
 
 /** Get dreview details by id */
-const getdReviewDetails = async (req, res) => {
+const getReviewDetails = async (req, res) => {
   try {
     const getDetails = await dreviewService.getdReviewById(
       req.params.dreviewId
@@ -101,7 +101,7 @@ const updateDetails = async (req, res) => {
 };
 
 /** Delete dreview */
-const deletedReview = async (req, res) => {
+const deleteReview = async (req, res) => {
   try {
     const dreviewId = req.params.dreviewId;
     const dreviewExists = await dreviewService.getdReviewById(
@@ -123,9 +123,9 @@ const deletedReview = async (req, res) => {
 };
 
 module.exports = {
-  createdReview,
-  getdReviewList,
-  getdReviewDetails,
+  createReview,
+  getReviewList,
+  getReviewDetails,
   updateDetails,
-  deletedReview,
+  deleteReview,
 };

@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const menuSchema = new mongoose.Schema(
   {
-    restaurant: {
+    restaurants: {
       type: mongoose.Types.ObjectId,
-      ref: restaurantsalmo,
+      ref: "restaurants",
     },
     product_name: {
       type: String,

@@ -4,11 +4,11 @@ const reviewSchema = new mongoose.Schema(
   {
     restaurant: {
       type: mongoose.Types.ObjectId,
-      ref: restaurants,
+      ref: "restaurants",
     },
     user: {
       type: mongoose.Types.ObjectId,
-      ref: users,
+      ref: "users",
     },
     rating: {
       type: Number,
